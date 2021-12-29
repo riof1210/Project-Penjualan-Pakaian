@@ -14,8 +14,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        $kategoris = Kategori::all();
-        return view('admin.kategori.index', compact('kategoris'));
+        $kategori = Kategori::all();
+        return view('admin.kategori.index', compact('kategori'));
     }
 
     /**
@@ -44,7 +44,7 @@ class KategoriController extends Controller
         $kategori = new Kategori;
         $kategori->kategori_barang = $request->kategori_barang;
         $kategori->save();
-        return redirect()->route('kategoris.index');
+        return redirect()->route('kategori.index');
     }
 
     /**
@@ -87,7 +87,7 @@ class KategoriController extends Controller
         $kategori = Kategori::findOrFail($id);
         $kategori->kategori_barang = $request->kategori_barang;
         $kategori->save();
-        return redirect()->route('kategoris.index');
+        return redirect()->route('kategori.index');
     }
 
     /**
@@ -100,6 +100,6 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::findOrFail($id);
         $kategori->delete();
-        return redirect()->route('kategoris.index');
+        return redirect()->route('kategori.index');
     }
 }

@@ -89,7 +89,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('template/assets/images/favicon.png') }}">
-    <title>Adminmart Template - The Ultimate Multipurpose admin template</title>
+    <title>Sign Up</title>
     <!-- Custom CSS -->
     <link href="{{ asset('template/dist/css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -127,6 +127,7 @@
                         <img src="{{ asset('template/assets/images/big/icon.png') }}" alt="wrapkit">
                         <h2 class="mt-3 text-center">Sign Up for Free</h2>
                         <form class="mt-4" method="POST" action="{{ route('register') }}">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="form-group">

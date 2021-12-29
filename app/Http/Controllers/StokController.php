@@ -15,8 +15,8 @@ class StokController extends Controller
      */
     public function index()
     {
-        $stoks = Stok::with('pakaian')->get();
-        return view('admin.stok.index', compact('stoks'));
+        $stok = Stok::with('pakaian')->get();
+        return view('admin.stok.index', compact('stok'));
     }
 
     /**
@@ -50,7 +50,7 @@ class StokController extends Controller
         $stok->tgl_stok = $request->tgl_stok;
         $stok->qty_stok = $request->qty_stok;
         $stok->save();
-        return redirect()->route('stoks.index');
+        return redirect()->route('stok.index');
     }
 
     /**
@@ -98,7 +98,7 @@ class StokController extends Controller
         $stok->tgl_stok = $request->tgl_stok;
         $stok->qty_stok = $request->qty_stok;
         $stok->save();
-        return redirect()->route('stoks.index');
+        return redirect()->route('stok.index');
     }
 
     /**
@@ -111,6 +111,6 @@ class StokController extends Controller
     {
         $stok = Stok::findOrFail($id);
         $stok->delete();
-        return redirect()->route('stoks.index');
+        return redirect()->route('stok.index');
     }
 }
