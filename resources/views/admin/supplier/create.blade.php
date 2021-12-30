@@ -16,36 +16,38 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Stok</div>
+                    <div class="card-header">Data Supplier</div>
                     <div class="card-body">
-                        <form action="{{ route('stok.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('supplier.store') }}" method="post" nctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="">Masukan Nama Pakaian</label>
-                            <select name="pakaian_id" class="form-control @error('pakaian_id') is-invalid @enderror" >
-                                @foreach($pakaian as $data)
-                                    <option value="{{$data->id}}">{{$data->nama_pakaian}}</option>
-                                @endforeach
-                            </select>
-                            @error('pakaian_id')
+                            <label for="">Masukan Nama Supplier</label>
+                            <input type="text" name="nama" class="form-control @error('nama')
+                                is-invalid
+                            @enderror">
+                            @error('nama')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Masukan Tanggal Stok</label>
-                            <input type="datetime-local" name="tgl_stok" class="form-control @error('tgl_stok') is-invalid @enderror">
-                             @error('tgl_stok')
+                            <label for="">Masukan Alamat Supplier</label>
+                            <input type="text" name="alamat" class="form-control @error('alamat')
+                                is-invalid
+                            @enderror">
+                            @error('alamat')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="">Masukan Jumlah Stok</label>
-                            <input type="number" name="qty_stok" class="form-control @error('qty_stok') is-invalid @enderror">
-                             @error('qty_stok')
+                            <label for="">Masukan Nomor Telpon Supplier</label>
+                            <input type="text" name="no_telp" class="form-control @error('no_telp')
+                                is-invalid
+                            @enderror">
+                            @error('no_telp')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

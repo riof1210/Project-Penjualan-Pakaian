@@ -15,7 +15,7 @@ class PembayaranController extends Controller
      */
     public function index()
     {
-        $pembayaran = Pembayaran::with('penjualan');
+        $pembayarans = Pembayaran::with('penjualan');
         return view('admin.pembayaran.index', compact('pembayarans'));
     }
 

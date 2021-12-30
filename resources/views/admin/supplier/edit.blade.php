@@ -16,46 +16,33 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Data Pembayaran</div>
+                    <div class="card-header">Data Supplier</div>
                     <div class="card-body">
-                        <form action="{{ route('pembayarans.update', $pembayaran->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('supplier.update', $supplier->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                     @method('put')
                 <div class="form-group">
-                    <label for="">Masukan Nama Pelanggan</label>
-                    <select name="pelanggan_id" class="form-control @error('pelanggan_id') is-invalid @enderror">
-                        @foreach ($pelanggans as $data)
-                        <option value="{{ $data->id }}" {{ $data->id == $pembayaran->pelanggan_id ? 'selected="selected"' : '' }}>{{ $data->nama }}</option>
-                    @endforeach
-                </select>
-                @error('pelanggan_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                </div>
-                <div class="form-group">
-                    <label for="">Masukan Tanggal Pembayaran</label>
-                    <input type="datetime" name="tgl_Pembayaran" value="{{ $pembayaran->tgl_bayar }}" class="form-control @error('tgl_bayar') is-invalid" @enderror>
-                    @error('tgl_bayar')
+                    <label for="">Masukan Nama Supplier</label>
+                    <input type="text" name="nama" value="{{ $supplier->nama }}" class="form-control @error('nama') is-invalid" @enderror>
+                    @error('nama')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="">Masukan Total Pembayaran</label>
-                    <input type="number" name="total" value="{{ $pembayaran->total }}" class="form-control @error('total') is-invalid" @enderror>
-                    @error('total')
+                    <label for="">Masukan Alamat Supplier</label>
+                    <input type="text" name="alamat" value="{{ $supplier->alamat }}" class="form-control @error('alamat') is-invalid" @enderror>
+                    @error('alamat')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="">Masukan Metode Pembayaran</label>
-                    <input type="text" name="metode" value="{{ $pembayaran->metode }}" class="form-control @error('metode') is-invalid" @enderror>
-                    @error('metode')
+                    <label for="">Masukan Nomor Telpon Supplier</label>
+                    <input type="number" name="no_telp" value="{{ $supplier->no_telp }}" class="form-control @error('no_telp') is-invalid" @enderror>
+                    @error('no_telp')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

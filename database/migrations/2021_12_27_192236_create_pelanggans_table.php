@@ -15,15 +15,11 @@ class CreatePelanggansTable extends Migration
     {
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->string('email');
             $table->string('nama');
             $table->string('jk');
             $table->string('alamat');
             $table->string('telp');
-
-            $table->foreign('user_id')->references('id')
-                ->on('users')->onUpdate('cascade')
-                ->onDelete('cascade');
             $table->timestamps();
         });
     }

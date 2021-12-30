@@ -16,11 +16,7 @@ class Pelanggan extends Model
 
     public $timestamps = true;
 
-    public function pesan(){
-
-        return $this->belongsToMany('App\Models\User ', 'id_barang');
-    }
-
+    
     public function keranjang(){
 
         return $this->hasMany('App\Models\Keranjang', 'pelanggan_id');

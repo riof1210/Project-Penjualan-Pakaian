@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        $pelanggans = Pelanggan::with('user');
+        $pelanggans = Pelanggan::all();
         return view('admin.pelanggan.index', compact('pelanggans'));
     }
 
@@ -26,8 +26,8 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        $user = User::all();
-        return view('admin.pelanggan.create', compact('user'));
+        
+        return view('admin.pelanggan.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class PelangganController extends Controller
     {
         //
         $validated = $request->validate([
-            'user_id' => 'required',
+            'email' => 'required',
             'nama' => 'required',
             'jk' => 'required',
             'alamat' => 'required',
@@ -48,7 +48,7 @@ class PelangganController extends Controller
         ]);
 
         $pelanggan = new Pelanggan;
-        $pelanggan->user_id = $request->user_id;
+        $pelanggan->email = $request->email;
         $pelanggan->nama = $request->nama;
         $pelanggan->jk = $request->jk;
         $pelanggan->alamat = $request->alamat;
@@ -78,8 +78,7 @@ class PelangganController extends Controller
     public function edit($id)
     {
         $pelanggan = Pelanggan::findOrFail($id);
-        $user = User::all();
-        return view('admin.pelanggan.edit', compact('pelanggan', 'user'));
+        return view('admin.pelanggan.edit', compact('pelanggan'));
     }
 
     /**
@@ -92,7 +91,7 @@ class PelangganController extends Controller
     public function update(Request $request,$id)
     {
         $validated = $request->validate([
-            'user_id' => 'required',
+            'email' => 'required',
             'nama' => 'required',
             'jk' => 'required',
             'alamat' => 'required',
@@ -100,7 +99,7 @@ class PelangganController extends Controller
         ]);
 
         $pelanggan = Pelanggan::findOrFail($id);
-        $pelanggan->user_id = $request->user_id;
+        $pelanggan->email = $request->email;
         $pelanggan->nama = $request->nama;
         $pelanggan->jk = $request->jk;
         $pelanggan->alamat = $request->alamat;

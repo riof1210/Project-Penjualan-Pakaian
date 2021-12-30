@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Merk;
 use Illuminate\Http\Request;
-// use Session;
+use Session;
 
 class MerkController extends Controller
 {
@@ -45,17 +45,16 @@ class MerkController extends Controller
         $merk = new Merk;
         $merk->merk_barang = $request->merk_barang;
         $merk->save();
-        return redirect()->route('merk.index');
+        // return redirect()->route('merk.index');
 
-    //     $this->validate($request, ['merk_barang' => 'required|unique:merk']){
-    //         $merk = Merk::create($request->('merk_barang'));
+        // $this->validate($request, ['merk_barang' => 'required|unique:merk']);
+        //     $merk = Merk::create($request->only('merk_barang'));
 
-    //         Session::flash("flash_notification", [
-    //             "level" => "success",
-    //             "message" => "Berhasil Menyimpan $merk->merk_barang"
-    //         ]);
-    //         return redirect()->route('merk.index');
-    //     }
+            Session::flash("flash_notification", [
+                "level" => "success",
+                "message" => "Berhasil Menyimpan $merk->merk_barang"
+            ]);
+            return redirect()->route('merk.index');
     }
 
     /**
@@ -111,8 +110,8 @@ class MerkController extends Controller
     {
         $merk = Merk::findOrFail($id);
         $merk->delete();
-        return redirect()->route('merk.index');
+        // return redirect()->route('merk.index');
 
-        // if(!Merk::destroy($id)) return redirect()->back();
+        if(!Merk::destroy($id)) return redirect()->back();
     }
 }
