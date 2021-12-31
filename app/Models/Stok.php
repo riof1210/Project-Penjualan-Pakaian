@@ -18,6 +18,6 @@ class Stok extends Model
 
     public function pakaian(){
 
-        return $this->belongsToMany('App\Models\Pakaian', 'pakaian_id');
+        return $this->belongsTo('App\Models\Pakaian', 'pakaian_id');
     }
 }

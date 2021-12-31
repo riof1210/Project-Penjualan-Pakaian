@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-header">Data Stok</div>
                     <div class="card-body">
-                        <form action="{{ route('stok.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('stoks.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Masukan Nama Pakaian</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Masukan Tanggal Stok</label>
-                            <input type="datetime-local" name="tgl_stok" class="form-control @error('tgl_stok') is-invalid @enderror">
+                            <input type="date" name="tgl_stok" class="form-control @error('tgl_stok') is-invalid @enderror">
                              @error('tgl_stok')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

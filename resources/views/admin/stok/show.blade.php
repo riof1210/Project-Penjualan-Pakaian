@@ -31,7 +31,7 @@
                             <input type="number" name="qty_stok" value="{{ $stok->qty_stok }}" class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <a href="{{ url('admin/stok') }}" class="btn btn-block btn-outline-primary">Kembali</a>
+                            <a href="{{ url('admin/stoks') }}" class="btn btn-block btn-outline-primary">Kembali</a>
                         </div>
                     </div>
                 </div>

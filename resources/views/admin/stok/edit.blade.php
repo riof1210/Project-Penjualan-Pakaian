@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-header">Data Stok</div>
                     <div class="card-body">
-                        <form action="{{ route('stok.update', $stok->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('stoks.update', $stok->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                     @method('put')
                 <div class="form-group">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Masukan Tanggal Stok</label>
-                    <input type="datetime" name="tgl_stok" value="{{ $stok->tgl_stok }}" class="form-control @error('tgl_stok') is-invalid" @enderror>
+                    <input type="date" name="tgl_stok" value="{{ $stok->tgl_stok }}" class="form-control @error('tgl_stok') is-invalid" @enderror>
                     @error('tgl_stok')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

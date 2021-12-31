@@ -16,8 +16,8 @@ class CreateStoksTable extends Migration
         Schema::create('stoks', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('pakaian_id')->unsigned();
-            $table->datetime('tgl_stok');
-            $table->integer('qty_stok');
+            $table->date('tgl_stok');
+            $table->Integer('qty_stok');
 
             $table->foreign('pakaian_id')->references('id')
                 ->on('pakaians')->onUpdate('cascade')

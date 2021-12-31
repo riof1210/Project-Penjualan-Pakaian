@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-header">
                     Data Stok
-                    <a href="{{route('stok.create')}}" class="btn btn-sm btn-outline-primary float-right">Tambah Stok</a>
+                    <a href="{{route('stoks.create')}}" class="btn btn-sm btn-outline-primary float-right">Tambah Stok</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -38,11 +38,11 @@
                                 <td>{{$data->tgl_stok}}</td>
                                 <td>{{$data->qty_stok}}</td>
                                 <td>
-                                    <form action="{{route('stok.destroy',$data->id)}}" method="post">
+                                    <form action="{{route('stoks.destroy',$data->id)}}" method="post">
                                         @method('delete')
                                         @csrf
-                                        <a href="{{route('stok.edit',$data->id)}}" class="btn btn-outline-info">Edit</a>
-                                        <a href="{{route('stok.show',$data->id)}}" class="btn btn-outline-warning">Show</a>
+                                        <a href="{{route('stoks.edit',$data->id)}}" class="btn btn-outline-info">Edit</a>
+                                        <a href="{{route('stoks.show',$data->id)}}" class="btn btn-outline-warning">Show</a>
                                         <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                     </form>
                                 </td>

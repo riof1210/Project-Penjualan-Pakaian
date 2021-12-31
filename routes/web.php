@@ -42,13 +42,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
     Route::resource('merk', MerkController::class);
     Route::resource('kategori', KategoriController::class);
     Route::resource('supplier', SupplierController::class);
-    Route::resource('stok', StokController::class);
+    Route::resource('stoks', StokController::class);
     Route::resource('pelanggans', PelangganController::class);
     Route::resource('pakaians', PakaianController::class);
     Route::resource('keranjangs', KeranjangController::class);
     Route::resource('pembelians', PembelianController::class);
     Route::resource('pembayarans', PembayaranController::class);
-    
+
 });
 
 Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']], function(){
@@ -70,3 +70,4 @@ Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']]
 //         return view ('pengarang.index');
 //     })->middleware(['role:admin']);
 // });
+

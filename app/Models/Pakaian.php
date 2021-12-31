@@ -16,6 +16,10 @@ class Pakaian extends Model
 
     public $timestamps = true;
 
+    public function stok(){
+
+        return $this->hasOne('App\Models\Stok', 'pakaian_id');
+    }
     public function merk(){
 
         return $this->belogsToMany('App\Models\Merk', 'merk_id');

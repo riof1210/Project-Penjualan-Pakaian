@@ -18,7 +18,7 @@ class PakaianController extends Controller
     public function index()
     {
         $pakaians = Pakaian::with('merk', 'kategori', 'supplier');
-        return view('admin.pakaian.index', compact('pakaian'));
+        return view('admin.pakaian.index', compact('pakaians'));
     }
 
     /**
@@ -43,15 +43,15 @@ class PakaianController extends Controller
     public function store(Request $request)
     {
         //
-        $validated = $request->validate([
-            'nama_pakaian' => 'required',
-            'merk_id' => 'required',
-            'kategori_id' => 'required',
-            'harga' => 'required',
-            'gambar' => 'required|image|max:2048',
-            'deskripsi' => 'required',
-            'supplier_id' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'nama_pakaian' => 'required|unique:pakaians',
+        //     'merk_id' => 'required',
+        //     'kategori_id' => 'required',
+        //     'harga' => 'required',
+        //     'gambar' => 'required|image|max:2048',
+        //     'deskripsi' => 'required',
+        //     'supplier_id' => 'required',
+        // ]);
 
         $pakaian = new Pakaian;
         $pakaian->nama_pakaian = $request->nama_pakaian;
@@ -106,14 +106,14 @@ class PakaianController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $validated = $request->validate([
-            'nama_pakaian' => 'required',
-            'merk_id' => 'required',
-            'kategori_id' => 'required',
-            'harga' => 'required',
-            'deskripsi' => 'required',
-            'supplier_id' => 'required',
-        ]);
+        // $validated = $request->validate([
+        //     'nama_pakaian' => 'required',
+        //     'merk_id' => 'required',
+        //     'kategori_id' => 'required',
+        //     'harga' => 'required',
+        //     'deskripsi' => 'required',
+        //     'supplier_id' => 'required',
+        // ]);
 
         $pakaian = Pakaian::findOrFail($id);
         $pakaian->nama_pakaian = $request->nama_pakaian;

@@ -10,27 +10,9 @@
                 <li class="list-divider"></li>
                 <li class="nav-small-cap"><span class="hide-menu">Menu</span></li>
 
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('pakaians.index') }}"
                         aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                             class="hide-menu">Pakaian </span></a>
-                    <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                        <li class="sidebar-item"><a href="form-inputs.html" class="sidebar-link"><span
-                                    class="hide-menu"> Baju
-                                </span></a>
-                        </li>
-                        <li class="sidebar-item"><a href="form-input-grid.html" class="sidebar-link"><span
-                                    class="hide-menu"> Celana
-                                </span></a>
-                        </li>
-                        <li class="sidebar-item"><a href="form-checkbox-radio.html" class="sidebar-link"><span
-                                    class="hide-menu"> Jaket
-                                </span></a>
-                        </li>
-                        <li class="sidebar-item"><a href="form-checkbox-radio.html" class="sidebar-link"><span
-                                    class="hide-menu"> Sepatu
-                                </span></a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('kategori.index') }}"
                         aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
@@ -38,7 +20,7 @@
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('merk.index') }}"
                         aria-expanded="false"><i data-feather="message-square" class="feather-icon"></i><span
                             class="hide-menu">Merk</span></a></li>
-                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('stok.index') }}"
+                <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('stoks.index') }}"
                         aria-expanded="false"><i data-feather="calendar" class="feather-icon"></i><span
                             class="hide-menu">Stok</span></a></li>
                 <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{{ route('supplier.index') }}"
@@ -53,7 +35,7 @@
                                 aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
                                     class="hide-menu">Data Pembelian</span></a>
                             <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item"><a href="form-inputs.html" class="sidebar-link"><span
+                                <li class="sidebar-item"><a href="{{ route('pembelians.index') }}" class="sidebar-link"><span
                                             class="hide-menu"> Laporan Pembelian
                                         </span></a>
                                 </li>

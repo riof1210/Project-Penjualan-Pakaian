@@ -39,8 +39,8 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->nama_pakaian}}</td>
-                                <td>{{$data->merk->merk_pakaian}}</td>
-                                <td>{{$data->kategori->kategori_pakaian}}</td>
+                                <td>{{$data->merk->merk_barang}}</td>
+                                <td>{{$data->kategori->kategori_barang}}</td>
                                 <td>{{$data->harga}}</td>
                                 <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="Gambar"></td>
                                 <td>{{$data->deskripsi}}</td>

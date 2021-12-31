@@ -73,7 +73,7 @@ class StokController extends Controller
      */
     public function edit($id)
     {
-        $stok = stok::findOrFail($id);
+        $stok = Stok::findOrFail($id);
         $pakaian = Pakaian::all();
         return view('admin.stok.edit', compact('stok', 'pakaian'));
     }
