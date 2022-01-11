@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="">Masukan Merk Pakaian</label>
                     <select name="merk_id" class="form-control @error('merk_id') is-invalid @enderror">
-                        @foreach ($pakaians as $data)
+                        @foreach ($merk as $data)
                         <option value="{{ $data->id }}" {{ $data->id == $pakaian->merk_id ? 'selected="selected"' : '' }}>{{ $data->merk_barang }}</option>
                     @endforeach
                 </select>
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="">Masukan Kategori Pakaian</label>
                     <select name="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
-                        @foreach ($pakaians as $data)
+                        @foreach ($kategori as $data)
                         <option value="{{ $data->id }}" {{ $data->id == $pakaian->kategori_id ? 'selected="selected"' : '' }}>{{ $data->kategori_barang }}</option>
                     @endforeach
                 </select>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Masukan Deskripsi Pakaian</label>
-                    <input type="number" name="deskripsi" value="{{ $pakaian->deskripsi }}" class="form-control @error('deskripsi') is-invalid" @enderror>
+                    <input type="text" name="deskripsi" value="{{ $pakaian->deskripsi }}" class="form-control @error('deskripsi') is-invalid" @enderror>
                     @error('deskripsi')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
                 <div class="form-group">
                     <label for="">Masukan Supplier Pakaian</label>
                     <select name="supplier_id" class="form-control @error('supplier_id') is-invalid @enderror">
-                        @foreach ($pakaians as $data)
+                        @foreach ($supplier as $data)
                         <option value="{{ $data->id }}" {{ $data->id == $pakaian->supplier_id ? 'selected="selected"' : '' }}>{{ $data->nama }}</option>
                     @endforeach
                 </select>

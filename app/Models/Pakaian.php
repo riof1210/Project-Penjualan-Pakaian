@@ -9,9 +9,9 @@ class Pakaian extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama_pakaian', 'merk_id', 'jenis_id', 'harga', 'gambar', 'deskripsi', 'supplier_id'];
+    protected $fillable = ['nama_pakaian', 'merk_id', 'kategori_id', 'harga', 'gambar', 'deskripsi', 'supplier_id'];
 
-    protected $visible = ['nama_pakaian', 'merk_id', 'jenis_id', 'harga', 'gambar', 'deskripsi', 'supplier_id'];
+    protected $visible = ['nama_pakaian', 'merk_id', 'kategori_id', 'harga', 'gambar', 'deskripsi', 'supplier_id'];
 
 
     public $timestamps = true;
@@ -22,15 +22,15 @@ class Pakaian extends Model
     }
     public function merk(){
 
-        return $this->belogsToMany('App\Models\Merk', 'merk_id');
+        return $this->belongsTo('App\Models\Merk', 'merk_id');
     }
     public function kategori(){
 
-        return $this->belogsToMany('App\Models\Kategori', 'kategori_id');
+        return $this->belongsTo('App\Models\Kategori', 'kategori_id');
     }
     public function supplier(){
 
-        return $this->belogsToMany('App\Models\Supplier', 'supplier_id');
+        return $this->belongsTo('App\Models\Supplier', 'supplier_id');
     }
 
     public function image()

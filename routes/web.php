@@ -10,6 +10,7 @@ use App\Http\Controllers\PakaianController;
 use App\Http\Controllers\KeranjangController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\FrontendController;
 
 
 /*
@@ -23,9 +24,9 @@ use App\Http\Controllers\PembayaranController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -61,6 +62,14 @@ Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']]
     });
 });
 
+Route::resource('/', FrontendController::class);
+Route::get('/detailbarang', function () {
+    return view('frontend.detailbarang');
+});
+
+// Route::group(['prefix' => '/', 'middleware' => ['auth', 'role:pengguna']], function(){
+
+// });
 // Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
 //     Route::get('buku', function () {
 //         return view ('buku.index');

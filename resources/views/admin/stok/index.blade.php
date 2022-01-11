@@ -34,7 +34,7 @@
                             @foreach($stoks as $data)
                             <tr>
                                 <td>{{$no++}}</td>
-                                <td>{{$data->pakaians->nama_pakaian}}</td>
+                                <td>{{$data->pakaian->nama_pakaian}}</td>
                                 <td>{{$data->tgl_stok}}</td>
                                 <td>{{$data->qty_stok}}</td>
                                 <td>

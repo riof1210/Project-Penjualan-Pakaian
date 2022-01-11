@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Masukan Harga Pakaian</label>
-                            <input type="text" name="harga" class="form-control @error('harga') is-invalid @enderror">
+                            <input type="number" name="harga" class="form-control @error('harga') is-invalid @enderror">
                              @error('harga')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

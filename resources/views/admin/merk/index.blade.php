@@ -22,8 +22,8 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
-                            
+                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+
                             <thead class="thead-light">
                             <tr>
                                 <th>Nomor</th>
@@ -49,6 +49,13 @@
                             </tr>
                             </tbody>
                             @endforeach
+                            <tfoot>
+                                <tr>
+                                    <th>Nomor</th>
+                                    <th>Merk Pakaian</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

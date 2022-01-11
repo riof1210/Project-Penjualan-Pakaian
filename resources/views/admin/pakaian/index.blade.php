@@ -23,6 +23,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table">
+                            <thead class="thead-light">
                             <tr>
                                 <th>Nomor</th>
                                 <th>Nama Pakaian</th>
@@ -34,8 +35,10 @@
                                 <th>Supplier Pakaian</th>
                                 <th>Aksi</th>
                             </tr>
+                            </thead>
                             @php $no=1; @endphp
                             @foreach($pakaians as $data)
+                            <tbody>
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->nama_pakaian}}</td>
@@ -49,12 +52,13 @@
                                     <form action="{{route('pakaians.destroy',$data->id)}}" method="post">
                                         @method('delete')
                                         @csrf
-                                        <a href="{{route('pakaians.edit',$data->id)}}" class="btn btn-outline-info">Edit</a>
-                                        <a href="{{route('pakaians.show',$data->id)}}" class="btn btn-outline-warning">Show</a>
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
+                                        <a href="{{route('pakaians.edit',$data->id)}}" class="btn waves-effect waves-light btn-rounded btn-outline-primary">Edit</a>
+                                        <a href="{{route('pakaians.show',$data->id)}}" class="btn waves-effect waves-light btn-rounded btn-outline-warning">Show</a>
+                                        <button type="submit" class="btn waves-effect waves-light btn-rounded btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
                                     </form>
                                 </td>
                             </tr>
+                            <tbody>
                             @endforeach
                         </table>
                     </div>

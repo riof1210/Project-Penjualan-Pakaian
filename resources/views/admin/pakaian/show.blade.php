@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Nama Pakaian</label>
-                            <input type="text" name="nama_pakaian" value="{{ $pakaian->nama_barang }}" class="form-control" readonly>
+                            <input type="text" name="nama_pakaian" value="{{ $pakaian->nama_pakaian }}" class="form-control" readonly>
                         </div>
                         <div class="form-group">
                             <label for="">Merk Pakaian</label>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Kategori Pakaian</label>
-                            <input type="text" name="" value="{{ $pakaian->kategori->kategori_pakaian }}" class="form-control" readonly>
+                            <input type="text" name="" value="{{ $pakaian->kategori->kategori_barang }}" class="form-control" readonly>
                         </div>
                         <div class="form-group">
                             <label for="">Harga Pakaian</label>
@@ -48,7 +48,7 @@
                             <input type="text" name="" value="{{ $pakaian->supplier->nama }}" class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <a href="{{ url('admin/pakaian') }}" class="btn btn-block btn-outline-primary">Kembali</a>
+                            <a href="{{ url('admin/pakaians') }}" class="btn btn-block btn-outline-primary">Kembali</a>
                         </div>
                     </div>
                 </div>
