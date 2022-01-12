@@ -40,13 +40,13 @@
 	<!-- Header -->
 	@include('layouts.partials2.navbar')
 
+    @yield('content')
 
 	<!-- Sidebar -->
 	@include('layouts.partials2.sidebar')
 
 
 	<!-- Cart -->
-    @yield('content')
 
 	@include('layouts.partials2.chart')
 
@@ -259,7 +259,7 @@
 
 						<div class="block2-txt flex-w flex-t p-t-14">
 							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{{route('frontend.detailbarang',$data->id)}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								<a href="{{route('detail.show',$data->id)}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									{{$data->nama_pakaian}}
 								</a>
 

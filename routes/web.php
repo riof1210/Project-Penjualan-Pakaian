@@ -63,10 +63,12 @@ Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']]
 });
 
 Route::resource('/', FrontendController::class);
-Route::get('/detailbarang', function () {
-    return view('frontend.detailbarang');
-});
+// Route::get('detail', [App\Http\Controllers\FrontendController::class, 'show'])->name('detailbarang');
+Route::resource('detail', FrontendController::class);
 
+// Route::get('/detailbarang', function () {
+//     return view('frontend.detailbarang');
+// });
 // Route::group(['prefix' => '/', 'middleware' => ['auth', 'role:pengguna']], function(){
 
 // });

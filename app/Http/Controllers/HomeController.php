@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $pakaians = DB::table('pakaians')->count();
+        $kategori = DB::table('kategoris')->count();
+        $merk = DB::table('merks')->count();
+        $supplier = DB::table('suppliers')->count();
+        return view('admin.index', compact('pakaians', 'kategori', 'merk', 'supplier'));
     }
 }
