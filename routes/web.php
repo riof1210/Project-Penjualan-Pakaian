@@ -64,7 +64,8 @@ Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']]
 
 Route::resource('/', FrontendController::class);
 // Route::get('detail', [App\Http\Controllers\FrontendController::class, 'show'])->name('detailbarang');
-Route::resource('detail', FrontendController::class);
+// Route::resource('detail', FrontendController::class);
+Route::get('detail', FrontendController::class);
 
 // Route::get('/detailbarang', function () {
 //     return view('frontend.detailbarang');

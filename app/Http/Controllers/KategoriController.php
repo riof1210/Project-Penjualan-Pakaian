@@ -15,11 +15,9 @@ class KategoriController extends Controller
     public function index()
     {
         $kategori = Kategori::all();
-        return response()->json([
-            'succes' => true,
-            'message' => 'List Data Barang',
-            'data' => $kategori
-        ], 200);
+        return view('admin.kategori.index', compact('kategori'));
+
+        // 
     }
 
     /**

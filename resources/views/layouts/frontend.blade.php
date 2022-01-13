@@ -40,7 +40,6 @@
 	<!-- Header -->
 	@include('layouts.partials2.navbar')
 
-    @yield('content')
 
 	<!-- Sidebar -->
 	@include('layouts.partials2.sidebar')
@@ -61,7 +60,9 @@
 
 
 	<!-- Product -->
+    
 	<section class="bg0 p-t-23 p-b-130">
+	
 		<div class="container">
 			<div class="p-b-10">
 				<h3 class="ltext-103 cl5">
@@ -244,6 +245,11 @@
 			</div>
             
 			<div class="row isotope-grid">
+
+				<section class="content">
+				@yield('content')
+				</section>
+
                 @foreach($pakaians as $data)
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">

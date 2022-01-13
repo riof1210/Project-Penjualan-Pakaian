@@ -44,19 +44,42 @@
                     </div>
                 </div>
             </div>
-                
             <div class="col-md-6 col-lg-5 p-b-30">
                 <div class="p-r-50 p-t-5 p-lr-0-lg">
                     <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                        Lightweight Jacket
+                        <div class="form-group">
+                            <label for="">Nama Pakaian</label>
+                            <input type="text" name="nama_pakaian" value="{{ $pakaian->nama_pakaian }}" class="form-control" readonly>
+                        </div>
                     </h4>
 
-                    <span class="mtext-106 cl2">
-                        $58.79
-                    </span>
+                    <div class="form-group">
+                            <label for="">Merk Pakaian</label>
+                            <input type="text" name="" value="{{ $pakaian->merk->merk_barang }}" class="form-control" readonly>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="">Merk Pakaian</label>
+                            <input type="text" name="" value="{{ $pakaian->merk->merk_barang }}" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Kategori Pakaian</label>
+                            <input type="text" name="" value="{{ $pakaian->kategori->kategori_barang }}" class="form-control" readonly>
+                        </div>
+<div class="form-group">
+                            <label for="">Harga Pakaian</label>
+                            <input type="text" name="harga" value="{{ $pakaian->harga }}" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Gambar Pakaian</label>
+                            <br>
+                            <img src="{{ $pakaian->image() }}" style="width: 350px; height: 350px; padding:10px" alt="">
+                        </div>
                     <p class="stext-102 cl3 p-t-23">
-                        Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                        <div class="form-group">
+                            <label for="">Deskripsi Pakaian</label>
+                            <input type="text" name="deskripsi" value="{{ $pakaian->deskripsi }}" class="form-control" readonly>
+                        </div>
                     </p>
                     
                     <!--  -->
@@ -329,3 +352,4 @@
         </span>
     </div>
 </section>
+@endsection

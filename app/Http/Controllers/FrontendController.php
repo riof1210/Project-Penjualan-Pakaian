@@ -12,7 +12,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $pakaians = Pakaian::with('merk', 'kategori', 'supplier')->get();
+        $pakaians = Pakaian::all();
         return view('layouts.frontend', compact('pakaians'));
     }
 
