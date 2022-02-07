@@ -17,7 +17,7 @@ class KategoriController extends Controller
         $kategori = Kategori::all();
         return view('admin.kategori.index', compact('kategori'));
 
-        // 
+        //
     }
 
     /**
@@ -41,10 +41,12 @@ class KategoriController extends Controller
         //
         $validated = $request->validate([
             'kategori_barang' => 'required',
+            'deskripsi' => 'required',
         ]);
 
         $kategori = new Kategori;
         $kategori->kategori_barang = $request->kategori_barang;
+        $kategori->deskripsi = $request->deskripsi;
         $kategori->save();
         return redirect()->route('kategori.index');
     }
@@ -84,10 +86,12 @@ class KategoriController extends Controller
     {
         $validated = $request->validate([
             'kategori_barang' => 'required',
+            'deskripsi' => 'required',
         ]);
 
         $kategori = Kategori::findOrFail($id);
         $kategori->kategori_barang = $request->kategori_barang;
+        $kategori->deskripsi = $request->deskripsi;
         $kategori->save();
         return redirect()->route('kategori.index');
     }

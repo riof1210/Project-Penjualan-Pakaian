@@ -30,6 +30,7 @@
                                 <th>Merk Pakaian</th>
                                 <th>Kategori Pakaian</th>
                                 <th>Harga Pakaian</th>
+                                <th>Stok Pakaian</th>
                                 <th>Gambar Pakaian</th>
                                 <th>Deskripsi Pakaian</th>
                                 <th>Supplier Pakaian</th>
@@ -45,6 +46,7 @@
                                 <td>{{$data->merk->merk_barang}}</td>
                                 <td>{{$data->kategori->kategori_barang}}</td>
                                 <td>{{$data->harga}}</td>
+                                <td>{{$data->qty}}</td>
                                 <td><img src="{{$data->image()}}" alt="" style="width:150px; height:150px;" alt="Gambar"></td>
                                 <td>{{$data->deskripsi}}</td>
                                 <td>{{$data->supplier->nama}}</td>

@@ -9,9 +9,9 @@ class Pakaian extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nama_pakaian', 'merk_id', 'kategori_id', 'harga', 'gambar', 'deskripsi', 'supplier_id'];
+    protected $fillable = ['nama_pakaian', 'merk_id', 'kategori_id', 'harga', 'qty', 'gambar', 'deskripsi', 'supplier_id'];
 
-    protected $visible = ['nama_pakaian', 'merk_id', 'kategori_id', 'harga', 'gambar', 'deskripsi', 'supplier_id'];
+    protected $visible = ['nama_pakaian', 'merk_id', 'kategori_id', 'harga', 'qty', 'gambar', 'deskripsi', 'supplier_id'];
 
 
     public $timestamps = true;

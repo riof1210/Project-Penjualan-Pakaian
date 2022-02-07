@@ -9,9 +9,9 @@ class Keranjang extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pelanggan_id', 'pakaian_id', 'qty', 'total_harga'];
+    protected $fillable = ['user_id', 'pakaian_id', 'qty'];
 
-    protected $visible = ['pelanggan_id', 'pakaian_id', 'qty', 'total_harga'];
+    protected $visible = ['user_id', 'pakaian_id', 'qty'];
 
 
     public $timestamps = true;
@@ -20,9 +20,9 @@ class Keranjang extends Model
 
         return $this->hasMany('App\Models\Pembelian', 'keranjang_id');
     }
-    public function pelanggan(){
+    public function user(){
 
-        return $this->belongsTo('App\Models\Pelanggan', 'pelanggan_id');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
     public function pakaian(){
 

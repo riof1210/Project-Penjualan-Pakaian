@@ -1,40 +1,34 @@
 @extends('layouts.frontend')
 
 @section('content')
-<div class="row isotope-grid">
-@foreach($pakaians as $data)
+<section class="bg0 p-t-23 p-b-130">
+    <div class="container">
+        <div class="p-b-10">
+            <h3 class="ltext-103 cl5">
+                Product Overview
+            </h3>
+        </div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0 label-new" data-label="New">
-							<img src="{{$data->image()}}" alt="" style="width:340px; height:340px;" alt="Gambar" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="{{route('detail.show',$data->id)}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{$data->nama_pakaian}}
-								</a>
-
-								<span class="stext-105 cl3">
-									{{$data->harga}}
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="{{ asset('frontend/images/icons/icon-heart-01.png') }}" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{ asset('frontend/images/icons/icon-heart-02.png') }}" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-                @endforeach
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="owl-carousel featured-carousel owl-theme">
+                        @foreach($pakaians as $data)
+                            <div class="item">
+                                <div class="card">
+                                    <a href="{{ url('category/'.$data->nama_pakaian) }}">
+                                    <img src="{{$data->image()}}" alt="" style="width:320px; height:350px;" alt="Gambar">
+                                    <div class="card-body">
+                                        <h5>{{ $data->nama_pakaian }}</h5>
+                                        <span class="float-start">{{ $data->harga }}</span>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
+            </div>
+        </div>
+</section>
 @endsection

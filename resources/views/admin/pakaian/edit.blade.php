@@ -66,6 +66,15 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="">Masukan Stok Pakaian</label>
+                    <input type="text" name="stok" value="{{ $pakaian->stok }}" class="form-control @error('stok') is-invalid" @enderror>
+                    @error('stok')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="">Masukan Gambar Pakaian</label>
                     <br>
                     <img src="{{ $pakaian->image() }}" height="75" style="padding:10px;"/>

@@ -15,13 +15,12 @@ class CreateKeranjangsTable extends Migration
     {
         Schema::create('keranjangs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pelanggan_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('pakaian_id')->unsigned();
             $table->integer('qty');
-            $table->integer('total_harga');
 
-            $table->foreign('pelanggan_id')->references('id')
-            ->on('pelanggans')->onUpdate('cascade')
+            $table->foreign('user_id')->references('id')
+            ->on('users')->onUpdate('cascade')
             ->onDelete('cascade');
             $table->foreign('pakaian_id')->references('id')
             ->on('pakaians')->onUpdate('cascade')

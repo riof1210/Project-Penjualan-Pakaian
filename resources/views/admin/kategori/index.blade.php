@@ -26,6 +26,7 @@
                             <tr>
                                 <th>Nomor</th>
                                 <th>Kategori Pakaian</th>
+                                <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
                             @php $no=1; @endphp
@@ -33,6 +34,7 @@
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->kategori_barang}}</td>
+                                <td>{{$data->deskripsi}}</td>
                                 <td>
                                     <form action="{{route('kategori.destroy',$data->id)}}" method="post">
                                         @method('delete')

@@ -62,24 +62,11 @@ Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']]
     });
 });
 
-Route::resource('/', FrontendController::class);
-// Route::get('detail', [App\Http\Controllers\FrontendController::class, 'show'])->name('detailbarang');
-// Route::resource('detail', FrontendController::class);
-Route::get('detail', FrontendController::class);
+Route::get('/',  [FrontendController::class, 'index']);
+Route::get('category',  [FrontendController::class, 'category']);
+Route::get('category/{kategori_barang}',  [FrontendController::class, 'viewcategory']);
+Route::get('category/{kategori_barang}/{nama_barang}',  [FrontendController::class, 'productview']);
 
-// Route::get('/detailbarang', function () {
-//     return view('frontend.detailbarang');
-// });
-// Route::group(['prefix' => '/', 'middleware' => ['auth', 'role:pengguna']], function(){
-
-// });
-// Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function(){
-//     Route::get('buku', function () {
-//         return view ('buku.index');
-//     })->middleware(['role:admin|pengguna']);
-
-//     Route::get('pengarang', function(){
-//         return view ('pengarang.index');
-//     })->middleware(['role:admin']);
-// });
-
+Route::middleware(['auth'])->group(function () {
+    Route::post('add-to-cart', [KeranjangController::class, 'addProduct']);
+});

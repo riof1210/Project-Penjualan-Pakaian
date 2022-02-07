@@ -63,4 +63,15 @@ class ApiController extends Controller
             'data' => $kategori
         ], 200);
     }
+
+    public function destroy($id)
+    {
+        $kategori = Kategori::findOrFail($id);
+        $kategori->delete();
+        return response()->json([
+            'succes' => true,
+            'message' => 'Data Kategori Berhasil Dihapus',
+            'data' => $kategori
+        ], 200);
+    }
 }

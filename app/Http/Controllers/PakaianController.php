@@ -48,6 +48,7 @@ class PakaianController extends Controller
             'merk_id' => 'required',
             'kategori_id' => 'required',
             'harga' => 'required',
+            'qty' => 'required',
             'gambar' => 'required|image|max:2048',
             'deskripsi' => 'required',
             'supplier_id' => 'required',
@@ -58,6 +59,7 @@ class PakaianController extends Controller
         $pakaian->merk_id = $request->merk_id;
         $pakaian->kategori_id = $request->kategori_id;
         $pakaian->harga = $request->harga;
+        $pakaian->qty = $request->qty;
         if ($request->hasFile('gambar')) {
             $image = $request->file('gambar');
             $name = rand(1000, 9999) . $image->getClientOriginalName();
@@ -111,6 +113,7 @@ class PakaianController extends Controller
             'merk_id' => 'required',
             'kategori_id' => 'required',
             'harga' => 'required',
+            'qty' => 'required',
             'deskripsi' => 'required',
             'supplier_id' => 'required',
         ]);
@@ -120,6 +123,7 @@ class PakaianController extends Controller
         $pakaian->merk_id = $request->merk_id;
         $pakaian->kategori_id = $request->kategori_id;
         $pakaian->harga = $request->harga;
+        $pakaian->qty = $request->qty;
         if ($request->hasFile('gambar')){
             $pakaian->deleteImage();
             $image = $request->file('gambar');

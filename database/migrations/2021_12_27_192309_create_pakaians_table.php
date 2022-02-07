@@ -19,6 +19,7 @@ class CreatePakaiansTable extends Migration
             $table->bigInteger('merk_id')->unsigned();
             $table->bigInteger('kategori_id')->unsigned();
             $table->integer('harga');
+            $table->integer('qty');
             $table->string('gambar')->nullable();
             $table->string('deskripsi');
             $table->bigInteger('supplier_id')->unsigned();

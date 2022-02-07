@@ -65,6 +65,15 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            <label for="">Masukan Stok Pakaian</label>
+                            <input type="number" name="qty" class="form-control @error('qty') is-invalid @enderror">
+                             @error('qty')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="">Masukan Gambar Pakaian</label>
                             <input type="file" name="gambar" class="form-control @error('gambar') is-invalid @enderror">
                              @error('gambar')
