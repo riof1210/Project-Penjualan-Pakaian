@@ -22,7 +22,7 @@
                                         <div class="card-body">
                                             <h5>{{ $data->nama_pakaian }}</h5>
                                             <span class="float-start">{{ $data->kategori->kategori_barang }}</span>
-                                            <span class="float-start">{{ $data->harga }}</span>
+                                            <span class="float-start">Rp.{{ number_format($data->harga,2,".",".") }}</span>
 
                                         </div>
                                     </div>

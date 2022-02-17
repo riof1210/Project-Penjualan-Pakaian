@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Validator;
 
 class KategoriController extends Controller
 {
@@ -39,10 +40,25 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         //
-        $validated = $request->validate([
-            'kategori_barang' => 'required',
-            'deskripsi' => 'required',
-        ]);
+        $rules = [
+            'kategori_barang' => 'required|max:255|unique:kategoris',
+            'deskripsi' => 'required|max:700|unique:kategoris'
+        ];
+
+$message = [
+            'kategori_barang.required' => 'Kategori harus di isi',
+            'kategori_barang.unique' => 'Kategori sudah digunakan',
+            'kategori_barang.max' => 'Kategori maksimal 255 karakter',
+            'deskripsi.required' => 'Deskripsi harus diisi',
+            'deskripsi.unique' => 'Deskripsi sudah digunakan',
+            'deskripsi.max' => 'Deskripsi maksimal 700 karakter',
+        ];
+
+ $validation = Validator::make($request->all(), $rules, $message);
+    if ($validation->fails()) {
+        Alert::error('Oops', 'Data yang anda input tidak valid, silahkan di ulang')->autoclose(2000);
+        return back()->withErrors($validation)->withInput();
+    }
 
         $kategori = new Kategori;
         $kategori->kategori_barang = $request->kategori_barang;
@@ -84,10 +100,25 @@ class KategoriController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $validated = $request->validate([
-            'kategori_barang' => 'required',
-            'deskripsi' => 'required',
-        ]);
+        $rules = [
+            'kategori_barang' => 'required|max:255|unique:kategoris',
+            'deskripsi' => 'required|max:700|unique:kategoris'
+        ];
+
+$message = [
+            'kategori_barang.required' => 'Kategori harus di isi',
+            'kategori_barang.unique' => 'Kategori sudah digunakan',
+            'kategori_barang.max' => 'Kategori maksimal 255 karakter',
+            'deskripsi.required' => 'Deskripsi harus diisi',
+            'deskripsi.unique' => 'Deskripsi sudah digunakan',
+            'deskripsi.max' => 'Deskripsi maksimal 700 karakter',
+        ];
+
+ $validation = Validator::make($request->all(), $rules, $message);
+    if ($validation->fails()) {
+        Alert::error('Oops', 'Data yang anda input tidak valid, silahkan di ulang')->autoclose(2000);
+        return back()->withErrors($validation)->withInput();
+    }
 
         $kategori = Kategori::findOrFail($id);
         $kategori->kategori_barang = $request->kategori_barang;

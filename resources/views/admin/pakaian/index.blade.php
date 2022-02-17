@@ -10,7 +10,17 @@
     </div>
 </div>
 @endsection --}}
-
+@section('css')
+    <link rel="stylesheet"  type="text/css" href="{{ asset('DataTables/datatables.css') }}">
+@endsection
+@section('js')
+<script type="text/javascript" charset="utf8" src="{{ asset('DataTables/datatables.js') }}"></script>
+<script>
+    $(document).ready( function () {
+    $('#pakaian').DataTable();
+} );
+</script>
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -22,7 +32,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="pakaian">
                             <thead class="thead-light">
                             <tr>
                                 <th>Nomor</th>
@@ -37,9 +47,9 @@
                                 <th>Aksi</th>
                             </tr>
                             </thead>
+                            <tbody>
                             @php $no=1; @endphp
                             @foreach($pakaians as $data)
-                            <tbody>
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->nama_pakaian}}</td>
@@ -60,8 +70,8 @@
                                     </form>
                                 </td>
                             </tr>
-                            <tbody>
                             @endforeach
+                            <tbody>
                         </table>
                     </div>
                 </div>

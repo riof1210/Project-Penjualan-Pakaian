@@ -11,6 +11,18 @@
     </div>
 @endsection --}}
 
+
+@section('js')
+<script type="text/javascript" src="{{ asset('ckeditor5-build-classic/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -84,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Masukan Deskripsi Pakaian</label>
-                            <input type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror">
+                            <textarea name="deskripsi" id="editor" cols="50" rows="10" class="form-control @error('deskripsi') is-invalid @enderror"></textarea>
                              @error('deskripsi')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

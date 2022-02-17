@@ -18,7 +18,8 @@
     <!-- Custom CSS -->
     <link href="{{ asset('template/dist/css/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('template/dist/css/icons/font-awesome/css/fontawesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('template/dist/css/icons/simple-line-icons/css/simple-line-icons.css') }}"rel="stylesheet">
+    <link href="{{ asset('template/dist/css/icons/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+    @yield('css')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -61,7 +62,7 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        
+
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
@@ -97,7 +98,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                
+
             @yield('header')
 
             <section class="content">
@@ -114,7 +115,7 @@
             <!-- End footer -->
             <!-- ============================================================== -->
         </div>
-        
+
         <footer class="footer text-center text-muted">
             All Rights Reserved by Adminmart. Designed and Developed by <a
             href="https://wrappixel.com">WrapPixel</a>.
@@ -149,6 +150,8 @@
     <script src="{{ asset('template/assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js') }}"></script>
     <script src="{{ asset('template/assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js') }}"></script>
     <script src="{{ asset('template/dist/js/pages/dashboards/dashboard1.min.js') }}"></script>
+    @include('sweetalert::alert')
+    @yield('js')
 </body>
 
 </html>

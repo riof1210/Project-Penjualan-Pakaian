@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\MerkController;
+use App\Http\Controllers\StokController;
+use App\Http\Controllers\PakaianController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\StokController;
-use App\Http\Controllers\PelangganController;
-use App\Http\Controllers\PakaianController;
 use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\PembayaranController;
-use App\Http\Controllers\FrontendController;
 
 
 /*
@@ -53,13 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']], func
 });
 
 Route::group(['prefix' => 'pengguna', 'middleware' => ['auth', 'role:pengguna']], function(){
-    Route::get('/', function () {
-        return 'halaman pengguna';
-    });
-
-    Route::get('profile', function(){
-        return "halaman profile pengguna";
-    });
+    
 });
 
 Route::get('/',  [FrontendController::class, 'index']);
@@ -67,6 +62,9 @@ Route::get('category',  [FrontendController::class, 'category']);
 Route::get('category/{kategori_barang}',  [FrontendController::class, 'viewcategory']);
 Route::get('category/{kategori_barang}/{nama_barang}',  [FrontendController::class, 'productview']);
 
-Route::middleware(['auth'])->group(function () {
-    Route::post('add-to-cart', [KeranjangController::class, 'addProduct']);
-});
+
+Route::get('cart', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
+Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
+Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
+Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');

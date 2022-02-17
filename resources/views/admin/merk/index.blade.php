@@ -10,6 +10,20 @@
     </div>
 </div>
 @endsection --}}
+@section('css')
+    <link rel="stylesheet"  type="text/css" href="{{ asset('DataTables/datatables.css') }}">
+@endsection
+@section('js')
+<script type="text/javascript" charset="utf8" src="{{ asset('DataTables/datatables.js') }}"></script>
+<script>
+    $(document).ready( function () {
+    $('#merk').DataTable();
+} );
+</script>
+<script src="{{ asset('js/sweetalert2.js') }}"></script>
+<script src="{{asset('js/delete.js')}}"></script>
+
+@endsection
 
 @section('content')
 <div class="container">
@@ -22,18 +36,18 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                        <table id="merk" class="table">
 
-                            <thead class="thead-light">
+                            <thead>
                             <tr>
                                 <th>Nomor</th>
                                 <th>Merk Pakaian</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
+                            <tbody>
                             @php $no=1; @endphp
                             @foreach($merk as $data)
-                            <tbody>
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$data->merk_barang}}</td>
@@ -43,12 +57,12 @@
                                         @csrf
                                         <a href="{{route('merk.edit',$data->id)}}" class="btn waves-effect waves-light btn-rounded btn-outline-primary">Edit</a>
                                         <a href="{{route('merk.show',$data->id)}}" class="btn waves-effect waves-light btn-rounded btn-outline-warning">Show</a>
-                                        <button type="submit" class="btn waves-effect waves-light btn-rounded btn-outline-danger" onclick="return confirm('Apakah anda yakin menghapus ini?');">Delete</button>
+                                        <button type="submit" class="btn btn-danger delete-confirm">Delete</button>
                                     </form>
                                 </td>
                             </tr>
-                            </tbody>
                             @endforeach
+                        </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Nomor</th>

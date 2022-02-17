@@ -67,8 +67,8 @@
                 </div>
                 <div class="form-group">
                     <label for="">Masukan Stok Pakaian</label>
-                    <input type="text" name="stok" value="{{ $pakaian->stok }}" class="form-control @error('stok') is-invalid" @enderror>
-                    @error('stok')
+                    <input type="text" name="qty" value="{{ $pakaian->qty }}" class="form-control @error('qty') is-invalid" @enderror>
+                    @error('qty')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

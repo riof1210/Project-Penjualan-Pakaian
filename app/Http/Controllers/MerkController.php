@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Merk;
 use Illuminate\Http\Request;
 use Session;
+use Alert;
+use Validator;
 
 class MerkController extends Controller
 {
@@ -38,23 +40,37 @@ class MerkController extends Controller
     public function store(Request $request)
     {
         //
-        $validated = $request->validate([
-            'merk_barang' => 'required',
-        ]);
+        $rules = [
+            'merk_barang' => 'required|max:255|unique:merks',
+
+        ];
+
+        $message = [
+            'merk_barang.required' => 'Merk harus di isi',
+            'merk_barang.unique' => 'Merk sudah ada',
+            'merk_barang.max' => 'Merk maksimal 255 karakter',
+
+        ];
+
+        $validation = Validator::make($request->all(), $rules, $message);
+            if ($validation->fails()) {
+                Alert::error('Oops', 'Data yang anda input tidak valid, silahkan di ulang')->autoclose(2000);
+                return back()->withErrors($validation)->withInput();
+            }
 
         $merk = new Merk;
         $merk->merk_barang = $request->merk_barang;
         $merk->save();
-        // return redirect()->route('merk.index');
+        return redirect()->route('merk.index');
 
         // $this->validate($request, ['merk_barang' => 'required|unique:merk']);
         //     $merk = Merk::create($request->only('merk_barang'));
 
-            Session::flash("flash_notification", [
-                "level" => "success",
-                "message" => "Berhasil Menyimpan $merk->merk_barang"
-            ]);
-            return redirect()->route('merk.index');
+            // Session::flash("flash_notification", [
+            //     "level" => "success",
+            //     "message" => "Berhasil Menyimpan $merk->merk_barang"
+            // ]);
+            // return redirect()->route('merk.index');
     }
 
     /**
@@ -90,9 +106,22 @@ class MerkController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $validated = $request->validate([
-            'merk_barang' => 'required',
-        ]);
+        $rules = [
+            'merk_barang' => 'required|max:255|unique:merks',
+        ];
+
+        $message = [
+            'merk_barang.required' => 'Merk harus di isi',
+            'merk_barang.unique' => 'Merk sudah digunakan',
+            'merk_barang.max' => 'Merk maksimal 255 karakter',
+
+        ];
+
+        $validation = Validator::make($request->all(), $rules, $message);
+            if ($validation->fails()) {
+                Alert::error('Oops', 'Data yang anda input tidak valid, silahkan di ulang')->autoclose(2000);
+                return back()->withErrors($validation)->withInput();
+            }
 
         $merk = Merk::findOrFail($id);
         $merk->merk_barang = $request->merk_barang;
@@ -108,10 +137,15 @@ class MerkController extends Controller
      */
     public function destroy($id)
     {
-        $merk = Merk::findOrFail($id);
-        $merk->delete();
+        // $merk = Merk::findOrFail($id);
+        // $merk->delete();
         // return redirect()->route('merk.index');
 
-        if(!Merk::destroy($id)) return redirect()->back();
+        if(!Merk::destroy($id)){
+            return redirect()->back();
+
+        }
+        Alert::success('Good Job', 'Data deleted successfully');
+        return redirect()->route('merk.index');
     }
 }

@@ -10,6 +10,17 @@
     </div>
 </div>
 @endsection --}}
+@section('css')
+    <link rel="stylesheet"  type="text/css" href="{{ asset('DataTables/datatables.css') }}">
+@endsection
+@section('js')
+<script type="text/javascript" charset="utf8" src="{{ asset('DataTables/datatables.js') }}"></script>
+<script>
+    $(document).ready( function () {
+    $('#kategori').DataTable();
+} );
+</script>
+@endsection
 
 @section('content')
 <div class="container">
@@ -22,13 +33,16 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table" id="kategori">
+                            <thead>
                             <tr>
                                 <th>Nomor</th>
                                 <th>Kategori Pakaian</th>
                                 <th>Deskripsi</th>
                                 <th>Aksi</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             @php $no=1; @endphp
                             @foreach($kategori as $data)
                             <tr>
@@ -46,6 +60,7 @@
                                 </td>
                             </tr>
                             @endforeach
+                        </tbody>
                         </table>
                     </div>
                 </div>
